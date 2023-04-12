@@ -1,0 +1,54 @@
+.container-Menu {
+    width: 100%;
+    position: relative;
+}
+
+.MenuBar {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 6px;
+    font-size: 18px;
+    color: rgb(78, 75, 75);
+    border-top-style: none;
+}
+
+.MenuBar li {
+    position: fixed;
+    right: 50px;
+    margin-top: 13px;
+}
+
+.MenuBar div {
+    position: fixed;
+    left: 320px;
+
+    margin-top: 13px;
+}
+
+.MenuBar i {
+    position: fixed;
+    margin-top: 21px;
+    margin-left: 300px;
+}
+
+.MenuBar li:hover {
+    cursor: pointer;
+    color: rgb(215, 29, 36);
+}
+
+@media only screen and (max-width: 925px) {
+
+    .MenuBar li {
+        left: 800px;
+        display: inline-block;
+
+    }
+
+    .MenuBar div {
+        position: relative;
+        display: inline-block;
+    }
+
+}

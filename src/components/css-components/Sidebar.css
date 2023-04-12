@@ -1,0 +1,122 @@
+p{
+    color: #4F4F4F; 
+}
+
+.Logo-sidebar img{
+    padding-top:5px ;
+    display: block;
+    margin: auto;
+    width:180px;
+}
+
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background-color: rgb(243, 243, 243);
+    z-index: 50;
+    border-right:red ;
+    
+}
+
+.Logo-sidebar p {
+    font-size: 13px;
+    display: block;
+    position: relative;
+    
+}
+.supName{
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.Rank{
+    margin-bottom: -5px;
+    display: inline-block;
+}
+
+hr {
+    position: relative;
+    border: 1px solid rgba(78, 75, 75, 0.22);
+}
+
+li {
+    list-style: none;
+    
+}
+
+.sidebar li:hover {
+    background-color: rgb(225, 204, 204);
+    cursor: pointer;
+    transition-duration: 0.1s;
+}
+
+.sidebar section:hover {
+    background-color: rgb(225, 204, 204);
+    cursor: pointer;
+}
+
+.sidebar li:hover .sidebar-font {
+    color: rgb(215, 29, 36);
+}
+
+.sidebar section:hover .sidebar-font {
+    color: rgb(215, 29, 36);
+}
+
+.sidebar-font {
+    margin-left: 30px;
+    font-size: 16px;
+    color: #4F4F4F;    
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+
+.sidebar li {
+    position: relative;
+    padding: 11px;
+}
+
+.sidebar section {
+    position: relative;
+    padding: 11px;
+}
+
+.Status-Color {
+    background-color: rgb(225, 204, 204);
+    color: white;
+}
+
+nav .active {
+    background-color: rgb(225, 204, 204);
+    box-shadow: inset 5px 0 0 0 rgb(157, 26, 26);
+}
+
+nav .active .sidebar-font {
+    color: rgb(215, 29, 36);
+}
+
+.menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.menu.open {
+    max-height: 100px;
+    transition: max-height 0.3s ease-in;
+}
+
+.arrow-icon {
+    position: absolute;
+    color: rgb(100, 96, 96);
+    right: 20px;
+}
+
+.sidebar div li .sidebar-font {
+    margin-left: 45px;
+}
+
