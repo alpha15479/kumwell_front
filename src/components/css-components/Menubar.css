@@ -1,6 +1,12 @@
 .container-Menu {
     width: 100%;
     position: relative;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .MenuBar {
@@ -14,41 +20,77 @@
     border-top-style: none;
 }
 
-.MenuBar li {
+.MenuBar .logo-menu {
+    display: none;
+    position: absolute;
+}
+
+.MenuBar .logout-btn{
     position: fixed;
     right: 50px;
     margin-top: 13px;
 }
 
-.MenuBar div {
+.MenuBar .menu-title {
     position: fixed;
-    left: 320px;
-
+    left: 290px;
     margin-top: 13px;
+    pointer-events: none;
 }
 
 .MenuBar i {
     position: fixed;
     margin-top: 21px;
-    margin-left: 300px;
+    margin-left: 27 0px;
+    text-decoration: none;
 }
 
-.MenuBar li:hover {
+.MenuBar .long-arrow-left .background-arrow{
+    position: absolute;
+    background: rgba(181, 184, 184,0.3);
+    border-radius:20px;
+    right: 5px;
+    margin: -11px;
+    width: 25px;
+    height: 25px;
+    z-index: -5;
+    cursor: pointer;
+}
+
+.MenuBar .long-arrow-left .background-arrow:hover{
+    background: rgba(181, 184, 184,0.5);
+}
+
+
+.MenuBar .logout-btn:hover {
     cursor: pointer;
     color: rgb(215, 29, 36);
 }
 
-@media only screen and (max-width: 925px) {
+@media only screen and (max-width: 768px) {
+    .MenuBar .logout-btn     {
+        display: none;
+    }
 
-    .MenuBar li {
-        left: 800px;
+    .MenuBar .menu-title {
+        left: 40px;
+        position: relative;
+        display: none;
+    }
+
+    .MenuBar .background-arrow {
+        margin-left: 20px;
+    }
+
+    .MenuBar .logo-menu {
         display: inline-block;
 
     }
 
-    .MenuBar div {
-        position: relative;
-        display: inline-block;
+    .MenuBar img {
+        width: 140px;
+        margin-top: 10px;
+        margin-left: 20px;
     }
 
 }

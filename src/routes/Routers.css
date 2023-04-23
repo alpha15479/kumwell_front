@@ -1,89 +1,132 @@
 .container-route {
     position: fixed;
-    margin-left:125px;
+    margin-left: 125px;
     margin-top: 75px;
     width: 100%;
-    height: 80%;
-    box-sizing: border-box;
-    padding: 0 150px;
-    
+    height: auto;
+    padding-left: 150px;
+    padding-right: 150px;
+
 }
 
-.sound-backgorund{
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.sound-backgorund {
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: #ffffff;
+    background-color: rgb(236, 236, 236);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding-bottom: 50px;
+    border-radius:5px ;
+
 }
 
-.container-route p{
+.container-route p {
     padding-top: 10px;
     margin-left: 20px;
-    color: #000;
-    font-size: 16px;
+    color: #706e6e;
+    font-size: 18px;
 }
 
-.sound-item{
+.sound-item {
     position: relative;
     margin-top: 20px;
-    width:calc(100% - 55px);
-    margin-left: 40px;
+    width: calc(100% - 40px);
+    margin-left: 20px;
     background-color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: 25px;
+    padding: 22px;
     padding-bottom: auto;
     font-size: 14px;
-}
-
-.padding{
-    padding-bottom: 250px;
-}
-
-
-.sound-name{
-    margin-left: 40px;
-}
-
-.sound-Edit{
-    position: absolute;
-    right:200px ;
-}
-
-.sound-Delete{
-    position: absolute;
-    right:130px ;
-}
-
-.sound{
-    margin-left: 70px;
-}
-.sound-item .sound-Head{
-    margin-bottom: -15px;
-}
-
-hr{
-    position: relative;
+    padding-bottom: 50px;
     
 }
 
-input{
-    width:calc(100% - 5px);
+.report-item {
+    position: relative;
+    margin-top: 20px;
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding-bottom: auto;
+    font-size: 14px;
+    padding-bottom: 50px;
+    border-radius: 7px;
+}
+
+input {
+    width: calc(100% - 5px);
+    border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .btn-add {
-    
     border: 1px solid rgba(131, 131, 131, 0.6);
     background-color: #2e86c1;
     border-radius: 5px;
-    
     color: white;
     font-size: 13px;
     height: 30px;
-    padding-left:15px;
-    padding-right:15px; width:auto;
-    z-index: 5;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: auto;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.btn-report {
+    border: 1px solid rgba(131, 131, 131, 0.6);
+    background-color: #2e86c1;
+    border-radius: 12px;
+    color: white;
+    font-size: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.edit-btn {
+    border: none;
+    background-color: #ddc146;
+    border-radius: 7px;
+    color: white;
+    font-size: 11px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: auto;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.change-btn {
+    border: none;
+    background-color: #2e86c1;
+    border-radius: 7px;
+    color: white;
+    font-size: 11px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: auto;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.delete-btn {
+    border: none;
+    background-color: #ee2d26;
+    border-radius: 7px;
+    color: white;
+    font-size: 11px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: auto;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .btn-add:hover {
@@ -108,48 +151,94 @@ input{
 }
 
 .arrow-left,
-.long-arrow-left{
- transform: rotate(-45deg);
+.long-arrow-left {
+    transform: rotate(-45deg);
 }
 
 .long-arrow-right,
-.long-arrow-left{
-  display: block;
-  margin: 30px auto;
-  width: 10px;
-  height: 10px;
-  border-top: 2px solid rgb(78, 75, 75);
-  border-left: 2px solid rgb(78, 75, 75);
-  cursor: pointer;
-}   
-
-.Link-Spect{
-    margin-left: 40px;
+.long-arrow-left {
+    display: block;
+    margin: 30px auto;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid rgb(78, 75, 75);
+    border-left: 2px solid rgb(78, 75, 75);
+    cursor: pointer;
+    z-index: 20;
 }
 
-.Report{
+.Link-Spect {
+    margin-left: 20px;
+}
+
+.Report {
     padding: 20px;
 }
 
-.report-Edit{
+.report-Edit {
     position: absolute;
-    right:100px ;
+    right: 100px;
 }
 
-.report-name{
+.report-name {
     margin-left: 80px;
 }
 
-.report-Head{
+.report-Head {
     margin-bottom: -15px;
 }
 
-@media only screen and (max-width: 925px) {
-    .container-route {
-        width: 905px;
-    }
-    .sound-item{
-        position: relative;
-        width:550px;
+@media only screen and (max-width: 908px) {
+    .sound {
+        margin-left: 20px;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .container-route {
+        width: calc(100% + 255px);
+        margin-left: -125px;
+    }
+
+    .sound {
+        margin-left: 20px;
+        display: none;
+    }
+
+    .sound-name {
+        margin-left: 15px;
+    }
+
+    .sound {
+        margin-left: 20px;
+    }
+
+    .sound-item {
+        margin-left: 20px;
+    }
+
+    .sound-Edit {
+        right: 80px;
+    }
+}
+
+@media only screen and (max-width: 374px) {
+    .container-route {
+        display: block;
+        width: 640px;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    .container-route {
+        margin-left: -135px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .container-route {
+        margin-left: -140px;
+    }
+}
+
+@media only screen and (max-width: 1130px) {}

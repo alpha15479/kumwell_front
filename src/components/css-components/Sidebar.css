@@ -1,12 +1,39 @@
-p{
-    color: #4F4F4F; 
+p {
+    color: #4F4F4F;
 }
 
-.Logo-sidebar img{
-    padding-top:5px ;
+.Logo-sidebar img {
+    padding-top: 5px;
     display: block;
     margin: auto;
-    width:180px;
+    width: 180px;
+}
+
+.Logo-sidebar {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.Logo-sidebar p {
+    font-size: 13px;
+    display: block;
+    position: relative;
+
+}
+
+.supName {
+    margin-top: 0px;
+    margin-bottom: 5px;
+
+}
+
+.Rank {
+    margin-bottom: -5px;
+    display: inline-block;
 }
 
 .sidebar {
@@ -15,24 +42,8 @@ p{
     height: 100%;
     background-color: rgb(243, 243, 243);
     z-index: 50;
-    border-right:red ;
-    
-}
+    border-right: red;
 
-.Logo-sidebar p {
-    font-size: 13px;
-    display: block;
-    position: relative;
-    
-}
-.supName{
-    margin-top: 0px;
-    margin-bottom: 5px;
-}
-
-.Rank{
-    margin-bottom: -5px;
-    display: inline-block;
 }
 
 hr {
@@ -42,7 +53,7 @@ hr {
 
 li {
     list-style: none;
-    
+
 }
 
 .sidebar li:hover {
@@ -67,11 +78,19 @@ li {
 .sidebar-font {
     margin-left: 30px;
     font-size: 16px;
-    color: #4F4F4F;    
+    color: #4F4F4F;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-a:hover, a:visited, a:link, a:active
-{
+a:hover,
+a:visited,
+a:link,
+a:active {
     text-decoration: none;
 }
 
@@ -120,3 +139,9 @@ nav .active .sidebar-font {
     margin-left: 45px;
 }
 
+@media only screen and (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+}

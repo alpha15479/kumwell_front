@@ -1,11 +1,10 @@
 import '../Routers.css';
-import '../../assistant/css/bootstrap.min.css'
 import Menubar from '../../components/Menubar';
+import '../../assistant/css/bootstrap.min.css'
 function AddSound() {
     return (
         <>
-            <Menubar title="ตั้งค่าข้อมูลเสียงแจ้งเตือน / เพิ่มเสียงใหม่" arrow="long-arrow-left">
-            </Menubar>
+            <Menubar title="ตั้งค่าข้อมูลเสียงแจ้งเตือน / เพิ่มเสียงใหม่" arrow="long-arrow-left"/>
             <div className="container-route">
                 <div className="sound-backgorund">
                     <p>เพิ่มเสียงแจ้งเตือนใหม่</p>
@@ -13,7 +12,7 @@ function AddSound() {
                        <div>ชื่อเสียงแจ้งเตือนใหม่</div>  
                        <input type="text" />
                        <div className='mt-3'>Upload File</div> 
-                       <input type="text" />
+                       <input type="file" />
                        <button className='btn-add mt-4 ' >SUBMIT</button>
                     </div>
                 </div>

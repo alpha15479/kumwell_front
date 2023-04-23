@@ -5,11 +5,10 @@ import SidebarItem from './js-components/SidebarItem';
 import LogoSidebar from './js-components/LogoSidebar';
 function Sidebar() {
   const [isMenuOpen, setIsMenuOpen] = useState(null);
-
   function handleMenuClick() {
     setIsMenuOpen(!isMenuOpen);
   }
-
+  
   useEffect(() => {
     setIsMenuOpen(false);
   }, []);
@@ -22,8 +21,7 @@ function Sidebar() {
         <section onClick={handleMenuClick} >
           <span className="sidebar-font">ตั้งค่าสถานที่</span>
           {isMenuOpen ? (
-            <FaAngleUp className='arrow-icon' />
-          ) : (
+            <FaAngleUp className='arrow-icon' />) : (
             <FaAngleDown className='arrow-icon' />
           )}
         </section>
