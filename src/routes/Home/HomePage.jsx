@@ -9,7 +9,14 @@ function HomePage() {
         <>
             <Menubar title="หน้าหลัก" />
             <div className="container-route">
-                <MapGoogle />
+
+                <MapGoogle   onLoad={map => {
+    const bounds = new window.google.maps.LatLngBounds();
+    map.fitBounds(bounds);
+  }}
+  onUnmount={map => {
+    // do your stuff before map is unmounted
+  }}/>
             </div>
         </>
     );

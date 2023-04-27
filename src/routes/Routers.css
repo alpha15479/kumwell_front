@@ -6,7 +6,6 @@
     height: auto;
     padding-left: 150px;
     padding-right: 150px;
-
 }
 
 * {
@@ -25,14 +24,13 @@
     background-color: rgb(236, 236, 236);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding-bottom: 50px;
-    border-radius:5px ;
-
+    border-radius: 5px;
 }
 
 .container-route p {
     padding-top: 10px;
     margin-left: 20px;
-    color: #706e6e;
+    color: #534f4f;
     font-size: 18px;
 }
 
@@ -47,7 +45,6 @@
     padding-bottom: auto;
     font-size: 14px;
     padding-bottom: 50px;
-    
 }
 
 .report-item {
@@ -68,9 +65,22 @@ input {
     border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
+input.Search {
+    width: auto;
+    border: 1px solid #555;
+    display: block;
+    padding: 1px 20px 1px 5px;
+    width: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='16' class='bi bi-search ' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 200px center;
+    position: relative;
+    margin-bottom: 5px;
+}
+
 .btn-add {
-    border: 1px solid rgba(131, 131, 131, 0.6);
-    background-color: #2e86c1;
+    border: none;
+    background-color: #2E86C1;
     border-radius: 5px;
     color: white;
     font-size: 13px;
@@ -82,8 +92,8 @@ input {
 }
 
 .btn-report {
-    border: 1px solid rgba(131, 131, 131, 0.6);
-    background-color: #2e86c1;
+    border: none;
+    background-color: #2E86C1;
     border-radius: 12px;
     color: white;
     font-size: 10px;
@@ -95,7 +105,7 @@ input {
 
 .edit-btn {
     border: none;
-    background-color: #ddc146;
+    background-color: #F3BA26;
     border-radius: 7px;
     color: white;
     font-size: 11px;
@@ -107,7 +117,7 @@ input {
 
 .change-btn {
     border: none;
-    background-color: #2e86c1;
+    background-color: #2E86C1;
     border-radius: 7px;
     color: white;
     font-size: 11px;
@@ -119,7 +129,7 @@ input {
 
 .delete-btn {
     border: none;
-    background-color: #ee2d26;
+    background-color: #F37026;
     border-radius: 7px;
     color: white;
     font-size: 11px;

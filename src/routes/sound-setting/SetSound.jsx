@@ -1,5 +1,4 @@
 import "../Routers.css";
-import './SetSound.css';
 import Menubar from '../../components/Menubar';
 import '../../assistant/css/bootstrap.min.css'
 import { Link } from "react-router-dom";

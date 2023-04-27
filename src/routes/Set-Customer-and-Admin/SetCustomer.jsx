@@ -31,7 +31,6 @@ function SetCustomer() {
             selector: row => row.id,
             sortable: true,
             width: '57px'
-
         },
         {
             name: 'ชื่อบริษัท',
@@ -47,6 +46,7 @@ function SetCustomer() {
             name: 'ที่อยู่',
             selector: row => row.username,
             omit: hideDirector,
+            width: '250px'
         },
         {
             name: 'อีเมลล์',
@@ -58,8 +58,6 @@ function SetCustomer() {
             name: 'โทรศัพท์',
             selector: row => row.fname,
             omit: hideDirector,
-
-
         },
         {
             name: 'แก้ไข',
@@ -84,16 +82,15 @@ function SetCustomer() {
 
     const [filterText, setFilterText] = useState('');
     const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
-    const filteredItems = items.filter(
-        item => item.fname && item.fname.toLowerCase().includes(filterText.toLowerCase()),
+    const filteredItems = items.filter(item => item.fname && item.fname.toLowerCase().includes(filterText.toLowerCase()),);
 
-    );
     const handleClear = () => {
         if (filterText) {
             setResetPaginationToggle(!resetPaginationToggle);
             setFilterText('');
         }
     };
+    
     if (error) {
         return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {

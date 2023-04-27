@@ -1,5 +1,6 @@
 import Sidebar from './components/Sidebar';
 import LoginPage from './components/LoginPage';
+import HomePage from './routes/Home/HomePage';
 import SoundSet from './routes/sound-setting/SetSound'
 import AddSound from './routes/sound-setting/AddSound'
 import InfoPlace from './routes/infomation-place/InfoPlace'
@@ -10,7 +11,6 @@ import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import SideBarUser from './components/SideBarUser';
 import './index.css';
-import HomePage from './routes/Home/HomePage';
 function Kumwell() {
     const [login, setLogin] = useState(null);
     const [loginUser, setLoginUser] = useState(null);
@@ -48,6 +48,7 @@ function Kumwell() {
                         <Route path="SoundSet/AddSound" element={<AddSound />} />
                         <Route path="Report" element={<Report />} />
                     </Routes></> : <></>} */}
+            
                 <Sidebar />
                 <Routes>
                     {/* <Route index element={<LoginPage />} /> */}

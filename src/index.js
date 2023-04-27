@@ -6,10 +6,10 @@ import React from 'react';
 import Kumwell from './Kumwell';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <React.StrictMode>
+     <React.StrictMode>
         <BrowserRouter>
             <Kumwell />
         </BrowserRouter>
-    </React.StrictMode>
+     </React.StrictMode> 
 );
 reportWebVitals();

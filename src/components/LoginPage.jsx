@@ -10,7 +10,7 @@ function LoginPage() {
     return fetch(url1, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(credentials),
+      body: JSON.stringify(credentials),  
     })
       .then((response) => response.json());
   };

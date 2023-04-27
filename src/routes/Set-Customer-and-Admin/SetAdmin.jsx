@@ -9,6 +9,9 @@ function SetCustomer() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
     const [hideDirector, setHideDirector] = React.useState(false);
+    const [filterText, setFilterText] = useState('');
+    const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
+    const filteredItems = items.filter(item => item.fname && item.fname.toLowerCase().includes(filterText.toLowerCase()),);
     const fetchData = () => {
         const url = `https://www.melivecode.com/api/users`;
         fetch(url, { method: 'GET' })
@@ -24,13 +27,14 @@ function SetCustomer() {
                 }
             )
     }
+
     const columns = [
         {
             name: '#',
             selector: row => row.id,
+           
             sortable: true,
             width: '57px'
-
         },
         {
             name: 'ชื่อ',
@@ -46,6 +50,7 @@ function SetCustomer() {
             name: 'ชื่อ Username',
             selector: row => row.fname,
             omit: hideDirector,
+            width: '150px'
         },
         {
             name: 'ชื่อบริษัท',
@@ -55,7 +60,7 @@ function SetCustomer() {
         },
         {
             name: 'แก้ไขรหัสผ่าน',
-            cell: () => <button className="change-btn">เปลี่ยนแปลงรหัสผ่าน</button>,
+            cell: () => <button className="change-btn" onClick={ShowID}>เปลี่ยนแปลงรหัสผ่าน</button>,
             ignoreRowClick: true,
             allowOverflow: true,
             button: true,
@@ -71,23 +76,44 @@ function SetCustomer() {
         },
         {
             name: 'ลบ',
-            cell: () => <button className="delete-btn">ลบ</button>,
+            cell: row =>  <button className="delete-btn" onClick={()=>onDelete(row.id)}>ลบ</button>,
             ignoreRowClick: true,
             allowOverflow: true,
             button: true,
         }
     ];
+    const ShowID =()=>{
+        console.log('')
+    }
+
+    const onDelete =(id)=>{
+        console.log(id)
+        const data ={
+            "id": id
+        };
+        const urlDelete = `https://www.melivecode.com/api/attractions/delete`;
+        fetch(urlDelete, { method: 'DELETE',
+        headers:{
+            Accept: 'application/form-data',
+            'Content-Type':  'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    if(result['status']=='ok'){
+                        fetchData()
+                    }
+                },
+            )
+    }
 
     useEffect(() => {
         fetchData();
     }, [])
 
-    const [filterText, setFilterText] = useState('');
-    const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
-    const filteredItems = items.filter(
-        item => item.fname && item.fname.toLowerCase().includes(filterText.toLowerCase()),
-
-    );
+    
     const handleClear = () => {
         if (filterText) {
             setResetPaginationToggle(!resetPaginationToggle);
