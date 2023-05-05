@@ -1,24 +1,36 @@
 import React, { useEffect, useState } from 'react'
-import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
-
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import MarkerAPI from './Marker';
 const containerStyle = {
   width: '100%',
   height: '90vh'
-};
-
+}
 const center = {
-  lat: -3.745,
-  lng: -38.523
-};
+  lat: 35.3606422,
+  lng: 138.7186086
+}
 
 function MapGoogle() {
-  const [user, setUsers] = useState();
+  const [items, setItems] = useState([]);
+  const [map, setMap] = useState(null)
+  const [isLoad, setIsLoad] = useState('');
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "KEYAPI",
+    googleMapsApiKey: "urkey",
   })
+  const fetchData = () => {
+    const url = `https://www.melivecode.com/api/attractions`;
+    fetch(url, { method: 'GET' })
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setItems(result);
+          setIsLoad(true);
+        })}
   
-  const [map, setMap] = React.useState(null)
+  const handleDelete = (id) => {
+    setItems((prevData) => prevData.filter((item) => item.id !== id));
+  };
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);
@@ -28,34 +40,29 @@ function MapGoogle() {
     setMap(null)
   }, [])
 
-  const fetchUserData = () => {
-    fetch("https://www.melivecode.com/api/attractions")
-      .then(response => {
-        return response.json()
-      })
-      .then(data => {
-        setUsers(data)
-      })
-  }
- console.log(user)
-
   useEffect(() => {
-    fetchUserData();
-  }, [])
+    fetchData();
+  }, []);
+  return isLoad ? (
+    <>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={10}
+        onLoad={onLoad}
+        onUnmount={onUnmount}>
 
-  return isLoaded ? (
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={center}
-      zoom={10}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-    >
-      {
-        <Marker position={center} />
-      }
-      <></>
-    </GoogleMap>
-  ) : <></>
+        {items.map((item) => (
+          <div key={item.id}><MarkerAPI key={item.id} id={item.id} onDelete={handleDelete} /></div>
+        ))}
+
+        <></>
+
+      </GoogleMap>
+    </>) : 
+
+    <>
+
+    </>
 }
 export default React.memo(MapGoogle)
