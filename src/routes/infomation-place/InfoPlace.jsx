@@ -1,14 +1,15 @@
-import "../Routers.css";
+import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";import "../Routers.css";
 import Menubar from '../../components/Menubar';
 import '../../assistant/css/bootstrap.min.css'
-import { Link } from "react-router-dom";
-import React, { useEffect, useState } from "react";
 import DataTable from 'react-data-table-component';
+
 function InfoPlace() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
     const [hideDirector, setHideDirector] = React.useState(false);
+
     const fetchData = () => {
         const url = `https://www.melivecode.com/api/attractions`;
         fetch(url, { method: 'GET' })
@@ -22,8 +23,7 @@ function InfoPlace() {
                     setIsLoaded(true);
                     setError(error);
                 }
-            )
-    }
+            )};
     const columns = [
         {
             name: '#',
@@ -60,19 +60,19 @@ function InfoPlace() {
 
     useEffect(() => {
         fetchData();
-    }, [])
+    }, []);
 
     const [filterText, setFilterText] = useState('');
     const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
     const filteredItems = items.filter(
         item => item.name && item.name.toLowerCase().includes(filterText.toLowerCase()),
     );
+
     const handleClear = () => {
         if (filterText) {
             setResetPaginationToggle(!resetPaginationToggle);
             setFilterText('');
-        }
-    };
+        }};
 
     if (error) {
         return <div>Error: {error.message}</div>;
@@ -98,10 +98,8 @@ function InfoPlace() {
                                     theme="solarized"
                                     pagination
                                     dense
-                                    fixedHeader
-                                />
+                                    fixedHeader/>
                             </div>
-                            <hr />
                         </div>
                     </div>
                 </div>

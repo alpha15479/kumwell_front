@@ -30,7 +30,6 @@ function Report() {
             selector: row => row.id,
             sortable: true,
             width: '57px'
-
         },
         {
             name: 'ชื่อเสียงสถานที่',
@@ -68,8 +67,7 @@ function Report() {
                                 theme="solarized"
                                 pagination
                                 dense
-                                fixedHeader
-                            />
+                                fixedHeader/>
                         </div>
                     </div>
                 </div>

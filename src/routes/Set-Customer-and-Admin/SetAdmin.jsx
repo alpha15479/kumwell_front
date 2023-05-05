@@ -81,7 +81,9 @@ function SetCustomer() {
             allowOverflow: true,
             button: true,
         }
+
     ];
+
     const ShowID =()=>{
         console.log('')
     }
@@ -106,20 +108,17 @@ function SetCustomer() {
                         fetchData()
                     }
                 },
-            )
-    }
+            )}
 
     useEffect(() => {
         fetchData();
     }, [])
 
-    
     const handleClear = () => {
         if (filterText) {
             setResetPaginationToggle(!resetPaginationToggle);
             setFilterText('');
-        }
-    };
+        }};
 
     if (error) {
         return <div>Error: {error.message}</div>;
@@ -145,10 +144,8 @@ function SetCustomer() {
                                     theme="solarized"
                                     pagination
                                     dense
-                                    fixedHeader
-                                />
+                                    fixedHeader/>
                             </div>
-                            <hr />
                         </div>
                     </div>
                 </div>

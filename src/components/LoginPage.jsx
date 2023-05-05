@@ -3,14 +3,13 @@ import React, { useState } from "react";
 function LoginPage() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState();
-  const url2 = 'https://www.melivecode.com/api/login';
   const url1 = 'http://124.121.7.16:8899/api/v1/auth/login';
   localStorage.setItem("Rank", '');
   async function loginUser(credentials) {
     return fetch(url1, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(credentials),  
+      body: JSON.stringify(credentials),
     })
       .then((response) => response.json());
   };
@@ -20,6 +19,7 @@ function LoginPage() {
       "emailUsername": username,
       "password": password
     });
+
     console.log(response);
     if ("accessToken" in response) {
 
@@ -33,11 +33,8 @@ function LoginPage() {
         window.location.href = "/HomePage";
       }
     } else {
-
     }
   }
-  
-
   return (
     <form className="body" onSubmit={handleSubmit}>
       <div className="Login"  >
@@ -49,13 +46,13 @@ function LoginPage() {
           <p>USERNAME OR EMAIL</p>
           <input
             type="text"
-            onChange={(e) => setUserName(e.target.value)} 
-            value={username}/>
+            onChange={(e) => setUserName(e.target.value)}
+             />
           <p>PASSWORD</p>
           <input
             type="password"
             onChange={(e) => setPassword(e.target.value)}
-            value={password} />
+             />
           <div align="center">
             <button type="Submit" className="btn-login" >
               Sign In
