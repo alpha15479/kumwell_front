@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import './css-components/Menubar.css';
+import Cookies from 'js-cookie';
 function Menubar(props) {
     const { title, arrow } = props;
     const navigate = useNavigate();
     const handleClose = () => {
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("Rank");
+        Cookies.remove('accessToken')
+        Cookies.remove('Role')
         window.location.href = "/"
     }
     const Goback = () => {
@@ -13,9 +14,8 @@ function Menubar(props) {
     }
     return (
         <nav className='container-Menu'>
-
             <div className='MenuBar'>
-                <div className='logo-menu'>
+                <div className='logo-menu' onClick={() => window.location.href = "/HomePage"}>
                     <img src="/image/Logo-Kumwell.png" />
                 </div>
                 <i className={arrow} ><li className='background-arrow' onClick={Goback}></li></i>

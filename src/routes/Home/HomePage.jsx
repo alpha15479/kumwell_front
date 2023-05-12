@@ -1,13 +1,23 @@
 import '../Routers.css';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Menubar from '../../components/Menubar';
 import './HomePage.css';
 import MapGoogle from './GoogleMap';
-
+import Cookies from 'js-cookie';
 function HomePage() {
+    const [auth, setAuth] = useState('');
+    useEffect(()=>{
+        if(Cookies.get('accessToken')!==null){
+            setAuth(true);
+        }
+        if(Cookies.get('accessToken')==null){
+            setAuth(false);
+        }
+    },[])
+
     return (
-        <>
-            <Menubar title="หน้าหลัก" />
+    <>
+         <Menubar title="หน้าหลัก" />
             <div className="container-route">
                 <MapGoogle onLoad={map => {
                     const bounds = new window.google.maps.LatLngBounds();
@@ -24,6 +34,9 @@ function HomePage() {
                     <h3>Historical Stroke</h3>
                 </div> */}
             </div>
+        
+      
+           
         </>
     );
 }

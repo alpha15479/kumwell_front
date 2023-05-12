@@ -54,7 +54,6 @@ function Report() {
     return (
         <>
             <Menubar title="ข้อมูลรายงานสถานที่ต่างๆ" />
-
             <div className="container-route">
                 <div className="sound-backgorund">
                     <p>ข้อมูลรายงานสถานที่ต่างๆ</p>

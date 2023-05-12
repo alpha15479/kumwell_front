@@ -1,28 +1,30 @@
-.body{
+.body {
     background-color: rgb(248, 249, 249);
     position: fixed;
     width: 100%;
     height: 100vh;
+    overflow-y: auto;
 }
 
-.Login{
+.Login {
     background-color: rgb(255, 255, 255);
-    display: inline-flexbox;
+    display: flexbox;
     margin: auto;
-    overflow: hidden;
     margin-top: 150px;
     width: 550px;
     height: 470px;
     box-shadow: rgba(0, 0, 0, 0.18) 0px 6px 4px;
     border-radius: 5px;
+    max-height: 1080px;
+
 }
 
-.Login img{
+.Login img {
     margin-top: 30px;
     position: relative;
 }
 
-.SubName{
+.SubName {
     text-align: center;
     font-size: 14px;
     color: #4F4F4F;
@@ -30,29 +32,28 @@
 }
 
 
-.Login-form{
-    margin-top:30px;
-    position: absolute;
+.Login-form {
+    margin-top: 30px;
+    position: relative;
     color: #4F4F4F;
     margin-left: 50px;
-
 }
 
 
-.Login-form p{
-    margin: 0px;
-    font-size: 18px;
+.Login-form p {
+    margin: 2px;
+    font-size: 16px;
     position: relative;
 }
 
-.Login-form input{
+.Login-form input {
     width: 440px;
     height: 40px;
     background-color: #EBEBEB;
     border: none;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 3px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     margin-top: -3px;
 }
 
@@ -60,9 +61,8 @@
     padding-left: 18px;
     font-size: 20px;
     color: #4F4F4F;
-    
-}
 
+}
 
 .Login-form input[type=password] {
     padding-left: 18px;
@@ -70,15 +70,15 @@
     color: #4F4F4F;
 }
 
-input:focus{
+input:focus {
     outline: none;
 }
 
-.btn-login{
-    margin-top: 15px;
+.btn-login {
+    margin-top: 25px;
     width: 200px;
     height: 45px;
-    font-size: 24px;
+    font-size: 20px;
     color: #ffffff;
     background-color: #D71D24;
     border: none;
@@ -87,6 +87,67 @@ input:focus{
     box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 3px;
 }
 
-.btn-login:hover{
+.btn-login:hover {
     background-color: #f3565b;
+}
+
+.wrong-message {
+    color: #D71D24;
+    margin-top: -10px;
+    font-size: 18px;
+}
+
+.setOverFlow {
+    margin-top: 15%;
+}
+
+@media only screen and (max-width: 564px) {
+    .Login {
+        overflow-y: hidden;
+        margin-top: 0px;
+        height: calc(0px + 600px);
+        width: auto;
+        box-shadow: none;
+    }
+
+    .Login-form input {
+        padding: .4em 1em;
+        width: 100%;
+        margin-left: -10px;
+    }
+
+    .Login img {
+        margin-top: 25%;
+    }
+
+    .Login-form {
+        margin-top: 40px;
+        width: auto;
+        padding-right: 30px;
+    }
+
+    .body {
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .Login-form {
+        width: 300px;
+        position: fixed;
+        margin-top:200px ;  
+    }
+
+    .Login {
+        overflow: hidden;
+    }
+
+    .Login .Logo {
+        margin-left: 60px;
+        margin-top:20px ;  
+        position: fixed;
+    }
+    .Login-form input {
+        width: 280px;
+    }
 }

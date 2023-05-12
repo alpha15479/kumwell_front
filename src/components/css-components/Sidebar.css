@@ -112,6 +112,7 @@ a:active {
 nav .active {
     background-color: rgb(225, 204, 204);
     box-shadow: inset 5px 0 0 0 rgb(157, 26, 26);
+   
 }
 
 nav .active .sidebar-font {
@@ -143,5 +144,8 @@ nav .active .sidebar-font {
     .sidebar {
         display: none;
     }
+}
 
+.Logo-sidebar img:hover{
+    cursor: pointer;    
 }

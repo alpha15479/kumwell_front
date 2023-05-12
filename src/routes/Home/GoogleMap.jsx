@@ -16,8 +16,9 @@ function MapGoogle() {
   const [isLoad, setIsLoad] = useState('');
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "urkey",
+    googleMapsApiKey: "AIzaSyA5V4tiC61LWYwNCAQ0GsiMXEOjMsgp2NI",
   })
+
   const fetchData = () => {
     const url = `https://www.melivecode.com/api/attractions`;
     fetch(url, { method: 'GET' })
@@ -34,7 +35,6 @@ function MapGoogle() {
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);
-    setMap(map)
   }, [])
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null)
@@ -43,13 +43,13 @@ function MapGoogle() {
   useEffect(() => {
     fetchData();
   }, []);
-  return isLoad ? (
+  return isLoaded ? 
     <>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={10}
-        onLoad={onLoad}
+        zoom={8}
+        // onLoad={onLoad}
         onUnmount={onUnmount}>
 
         {items.map((item) => (
@@ -59,10 +59,8 @@ function MapGoogle() {
         <></>
 
       </GoogleMap>
-    </>) : 
-
+    </> : 
     <>
-
     </>
 }
 export default React.memo(MapGoogle)

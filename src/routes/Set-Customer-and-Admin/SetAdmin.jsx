@@ -25,8 +25,7 @@ function SetCustomer() {
                     setIsLoaded(true);
                     setError(error);
                 }
-            )
-    }
+            )}
 
     const columns = [
         {

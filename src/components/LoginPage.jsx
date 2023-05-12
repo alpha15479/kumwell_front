@@ -1,9 +1,13 @@
 import "./css-components/LoginPage.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import swal from 'sweetalert';
+import Cookies from 'js-cookie';
 function LoginPage() {
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState();
-  const url1 = 'http://124.121.7.16:8899/api/v1/auth/login';
+  const [username, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  Cookies.remove('accessToken');
+  const url1 = 'http://103.225.27.60:8080/api/v1/auth/login';
   localStorage.setItem("Rank", '');
   async function loginUser(credentials) {
     return fetch(url1, {
@@ -11,30 +15,39 @@ function LoginPage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(credentials),
     })
-      .then((response) => response.json());
+      .then((response) => response.json())
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await loginUser({
       "emailUsername": username,
       "password": password
-    });
-
+    })  
     console.log(response);
     if ("accessToken" in response) {
-
-      localStorage.setItem("accessToken", response["accessToken"]);
-      localStorage.setItem("user", JSON.stringify(response["userData"]));
-      if (response.userData.email == "Doe@test.com") {
-        localStorage.setItem("Rank", 'ADMIN');
-        window.location.href = "/HomePage"
-      } else {
-        localStorage.setItem("Rank", 'USER (Admin)');
-        window.location.href = "/HomePage";
-      }
+      setError(false);
+      swal({
+        title: "Login Success",
+        icon: "success",
+      }).then(() => {
+        Cookies.set('accessToken', response.accessToken, { secure: true, expires: 1 })
+        if (response.userData.email === "admin@kumwell.com") {
+          Cookies.set('Role', 'Admin')
+          window.location.href = "/HomePage"
+        } else {
+          Cookies.set('Role', 'User');
+          window.location.href = "/HomePage"
+        }
+      });
     } else {
+      setError(true);
     }
   }
+  useEffect(() => {
+    if (window.location.pathname != "/") {
+      window.location.href = "/";
+    }
+  }, [])
   return (
     <form className="body" onSubmit={handleSubmit}>
       <div className="Login"  >
@@ -42,23 +55,32 @@ function LoginPage() {
           <img src="/image/Logo-Kumwell.png" width="250px" />
           <p className="SubName">Lightning Warning System</p>
         </div>
-        <div className="Login-form" >
-          <p>USERNAME OR EMAIL</p>
-          <input
-            type="text"
-            onChange={(e) => setUserName(e.target.value)}
-             />
-          <p>PASSWORD</p>
-          <input
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-             />
-          <div align="center">
-            <button type="Submit" className="btn-login" >
-              Sign In
-            </button>
+        <section className="flex">
+          <div className="Login-form" >
+            <p>USERNAME OR EMAIL</p>
+            <input
+              type="text"
+              value={username || ''}
+              id="username"
+              onChange={(e) => setUserName(e.target.value)}
+            />
+            <p>PASSWORD</p>
+            <input
+              type="password"
+              value={password || ''}
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {error ? <><div className="wrong-message">username หรือ password ไม่ถูกต้อง</div></> : <></>}
+            <div align="center">
+              <button type="Submit" className="btn-login" >
+                Sign In
+              </button>
+            </div>
           </div>
-        </div>
+        </section>
+      </div>
+      <div className="setOverFlow">
       </div>
     </form>
   )
