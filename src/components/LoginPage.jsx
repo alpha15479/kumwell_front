@@ -6,9 +6,10 @@ function LoginPage() {
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [onInput, setOnInput] = useState('');
   Cookies.remove('accessToken');
   const url1 = 'http://103.225.27.60:8080/api/v1/auth/login';
-  localStorage.setItem("Rank", '');
+
   async function loginUser(credentials) {
     return fetch(url1, {
       method: "POST",
@@ -22,7 +23,7 @@ function LoginPage() {
     const response = await loginUser({
       "emailUsername": username,
       "password": password
-    })  
+    })
     console.log(response);
     if ("accessToken" in response) {
       setError(false);
@@ -39,8 +40,18 @@ function LoginPage() {
           window.location.href = "/HomePage"
         }
       });
-    } else {
+    }
+    else if (username.trim().length === 0) {
+      setOnInput(true);
+      setError(false);
+    }
+    else if (password.trim().length === 0) {
+      setOnInput(true);
+      setError(false);
+    }
+    else {
       setError(true);
+      setOnInput(false);
     }
   }
   useEffect(() => {
@@ -72,6 +83,7 @@ function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
             />
             {error ? <><div className="wrong-message">username หรือ password ไม่ถูกต้อง</div></> : <></>}
+            {onInput ? <><div className="wrong-message">กรุณาใส่รหัสให้ครบ</div></> : <></>}
             <div align="center">
               <button type="Submit" className="btn-login" >
                 Sign In

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Sidebar from './Sidebar';
 import LoginPage from './LoginPage';
 import HomePage from '../routes/Home/HomePage';
+import DetailOrganization from '../routes/DetailOrganization';
 import SoundSet from '../routes/sound-setting/SetSound'
 import AddSound from '../routes/sound-setting/AddSound'
 import InfoPlace from '../routes/infomation-place/InfoPlace'
@@ -21,6 +22,7 @@ function Role({ admin, user }) {
             {admin ? <>
                 <Sidebar />
                 <Routes>
+                   
                     <Route path="SoundSet" element={<SoundSet />} />
                     <Route path="SoundSet/AddSound" element={<AddSound />} />
                     <Route path="Report" element={<Report />} />

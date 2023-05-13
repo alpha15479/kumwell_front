@@ -4,6 +4,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import React from 'react';
 import Kumwell from './Kumwell';
+import "gridjs/dist/theme/mermaid.css"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
      <React.StrictMode>
