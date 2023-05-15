@@ -83,7 +83,7 @@ function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
             />
             {error ? <><div className="wrong-message">username หรือ password ไม่ถูกต้อง</div></> : <></>}
-            {onInput ? <><div className="wrong-message">กรุณาใส่รหัสให้ครบ</div></> : <></>}
+            {onInput ? <><div className="wrong-message">กรุณาป้อนข้อมูลให้ครบ</div></> : <></>}
             <div align="center">
               <button type="Submit" className="btn-login" >
                 Sign In

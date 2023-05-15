@@ -6,7 +6,7 @@ import axios from "axios";
 import "./Routers.css";
 export default function Organization() {
     const [dataOrganization, setDataOrganization] = useState([]);
-    
+
     const wrapperRef = useRef(null);
 
     let navigate = useNavigate();
@@ -73,24 +73,24 @@ export default function Organization() {
 
     return (
         <>
-        <div className="container-route">
-            <div className="card">
-                <div className="card-header">
-                    <div className="text-end">
-                        <button
-                            type="button"
-                            className="btn btn-primary btn-sm"
-                            data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"
-                        >
-                            เพิ่มข้อมูลสถานที่ใหม่
-                        </button>
+            <div className="container-route">
+                <div className="card">
+                    <div className="card-header">
+                        <div className="text-end">
+                            <button
+                                type="button"
+                                className="btn btn-primary btn-sm"
+                                data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                            >
+                                เพิ่มข้อมูลสถานที่ใหม่
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div className="card-body">
-                    <div ref={wrapperRef} />;
-                </div>
-            </div></div>
+                    <div className="card-body">
+                        <div ref={wrapperRef} />;
+                    </div>
+                </div></div>
         </>
     );
 }

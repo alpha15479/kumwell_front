@@ -17,9 +17,13 @@ function Kumwell() {
     }
 
     return (
+        <>
+        
         <div className='backgroundpage'>
-            {admin ? <><Role admin={true} /></> : <><Role user={true} /></>}
+        {admin ? <><Role admin={true} /></> : <><Role user={true} /></>}
         </div>
+        
+        </>
     );
 }
 

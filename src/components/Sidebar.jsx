@@ -3,12 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { FaAngleUp, FaAngleDown } from 'react-icons/fa';
 import SidebarItem from './js-components/SidebarItem';
 import LogoSidebar from './js-components/LogoSidebar';
-function Sidebar() {
+function Sidebar({showOns}) {
   const [isMenuOpen, setIsMenuOpen] = useState(null);
+
   function handleMenuClick() {
     setIsMenuOpen(!isMenuOpen);
   }
-  
+
   useEffect(() => {
     setIsMenuOpen(false);
   }, []);
@@ -38,7 +39,6 @@ function Sidebar() {
         <SidebarItem title="ข้อมูล Activation Code" route="/InformationActivationCode" />
         <SidebarItem title="แก้ไขรหัสผ่าน" route="/PasswordSet" />
       </nav>
-      
     </>
   );
 }

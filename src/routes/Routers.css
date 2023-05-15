@@ -1,11 +1,12 @@
 .container-route {
-    position: fixed;
+    position: flex;
     margin-left: 125px;
-    margin-top: 75px;
+    margin-top: 80px;
     width: 100%;
     height: auto;
     padding-left: 150px;
     padding-right: 150px;
+    z-index: 0;
 }
 
 * {

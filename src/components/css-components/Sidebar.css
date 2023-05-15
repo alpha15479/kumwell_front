@@ -41,9 +41,8 @@ p {
     width: 250px;
     height: 100%;
     background-color: rgb(243, 243, 243);
-    z-index: 50;
+    z-index: 20;
     border-right: red;
-
 }
 
 hr {
@@ -112,7 +111,7 @@ a:active {
 nav .active {
     background-color: rgb(225, 204, 204);
     box-shadow: inset 5px 0 0 0 rgb(157, 26, 26);
-   
+
 }
 
 nav .active .sidebar-font {
@@ -146,6 +145,6 @@ nav .active .sidebar-font {
     }
 }
 
-.Logo-sidebar img:hover{
-    cursor: pointer;    
+.Logo-sidebar img:hover {
+    cursor: pointer;
 }

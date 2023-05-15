@@ -42,7 +42,7 @@ function InfoPlace() {
             width: '150px'
         },
         {
-            name: 'Lat, ',
+            name: 'Lat,long ',
             cell: row => (
                 <li>
                     {row.lat}, {row.long}

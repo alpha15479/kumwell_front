@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import './css-components/Menubar.css';
 import Cookies from 'js-cookie';
+import BurgerMenu from './js-components/BurgerMenu';
 function Menubar(props) {
     const { title, arrow } = props;
     const navigate = useNavigate();
@@ -21,6 +22,7 @@ function Menubar(props) {
                 <i className={arrow} ><li className='background-arrow' onClick={Goback}></li></i>
                 <div className='menu-title'>{title}</div>
                 <li className='logout-btn' onClick={handleClose}>Logout</li>
+                <BurgerMenu/>
             </div>
         </nav>
     );
