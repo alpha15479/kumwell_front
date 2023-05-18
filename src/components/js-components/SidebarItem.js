@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import '../css-components/Sidebar.css'
 import { Link } from "react-router-dom";
 function SidebarItem(props) {
     const { title, route } = props;

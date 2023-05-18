@@ -8,9 +8,10 @@ function InfoPlace() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
     const [hideDirector, setHideDirector] = React.useState(false);
+    const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
     const token = (Cookies.get('accessToken'));
     const fetchData = () => {
-        const url = `http://103.225.27.60:8080/api/v1/organizations/`;
+        const url = `http://103.225.27.60:8082/api/v1/organizations/`;
         fetch(url, {
             method: 'GET', headers: {
                 Authorization: `Bearer ${token}`,
@@ -27,6 +28,7 @@ function InfoPlace() {
                 }
             )
     };
+    console.log(items)
     const columns = [
         {
             name: '#',
@@ -59,13 +61,18 @@ function InfoPlace() {
             name: 'ประเภทแผนที่',
             cell: row => (<>M Field, E Field</>)
         },
+        {
+            name: 'ตั้งค่าข้อมูล',
+            cell: row => (<><button className="change-btn">ตั้งค่า</button></>)
+        },
     ];
 
     useEffect(() => {
         fetchData();
     }, []);
+
     const [filterText, setFilterText] = useState('');
-    const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
+
     const handleClear = () => {
         if (filterText) {
             setResetPaginationToggle(!resetPaginationToggle);
@@ -82,7 +89,8 @@ function InfoPlace() {
                     {isLoaded ? <>
                         <div className="sound-backgorund">
                             <p>ข้อมูลรายละเอียดสถานที่</p>
-                            <Link to="/SoundSet/AddSound" className="Link-Spect"><button className="btn-add">เพิ่มข้อมูลสถานที่ใหม่</button></Link>
+                            {/* <Link to="/Locationinformation/UpdateOrganization" className="Link-Spect"><button className="btn-add">เพิ่มข้อมูลสถานที่ใหม่</button></Link> */}
+                            <button className="btn-add ms-4" onClick={handleClear}>เพิ่มข้อมูลสถานที่ใหม่</button>
                             <div className="sound-item ">
                                 <div className="sound-Head">
                                     <input className="Search" type="text" onChange={e => setFilterText(e.target.value)} placeholder="Search" />

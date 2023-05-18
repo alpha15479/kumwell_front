@@ -13,6 +13,7 @@ import SetCustomer from '../routes/Set-Customer-and-Admin/SetCustomer';
 import SideBarUser from './SideBarUser';
 import '../index.css';
 import Cookies from 'js-cookie';
+import UpdateOrganization from "../routes/infomation-place/UpdateOrganization";
 function Role({ admin, user }) {
     if(window.location.pathname == "/"){
         return <><LoginPage/></>
@@ -22,12 +23,12 @@ function Role({ admin, user }) {
             {admin ? <>
                 <Sidebar />
                 <Routes>
-                   
                     <Route path="SoundSet" element={<SoundSet />} />
                     <Route path="SoundSet/AddSound" element={<AddSound />} />
                     <Route path="Report" element={<Report />} />
                     <Route path="HomePage" element={<HomePage />} />
                     <Route path="Locationinformation" element={<InfoPlace />} />
+                    <Route path="Locationinformation/UpdateOrganization" element={<UpdateOrganization/>} />
                     <Route path="InformationUserSet" element={<SetAdmin />} />
                     <Route path="InformationCustomerSet" element={<SetCustomer />} />
                 </Routes>

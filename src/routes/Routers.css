@@ -62,7 +62,8 @@
 }
 
 input {
-    width: calc(100% - 5px);
+    height: 30px;
+    border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
@@ -231,6 +232,12 @@ input.Search {
     .sound-Edit {
         right: 80px;
     }
+}
+
+.select-type {
+    border-radius: 5px;
+    border: 1px solid rgb(182, 178, 178);
+    color: #000000;
 }
 
 @media only screen and (max-width: 374px) {

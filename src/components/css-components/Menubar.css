@@ -10,6 +10,7 @@
 }
 
 .MenuBar {
+    box-sizing: 0;
     position: fixed;
     width: 100%;
     height: 50px;
@@ -17,9 +18,10 @@
     box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 6px;
     font-size: 18px;
     color: rgb(78, 75, 75);
-    border-top-style: none; 
-    z-index: 5;
-    
+    border-top-style: none;
+    z-index: 10;
+    justify-content: flex-start;
+
 }
 
 .MenuBar .logo-menu {
@@ -69,36 +71,91 @@
 }
 
 .burger-menu {
-    height: 2.2em;
-    width: 2.5em;
     position: fixed;
-    right: 25px;
+    top: 10px;
     display: none;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
     cursor: pointer;
-    padding: 8px;
-    margin-top: 7px;
+    padding: 0;
+    z-index: 11;
+    left: 20px;
+    padding: 5px;
+    border-radius: 100px;
+
 }
 
-.burger-bar{
-    width: 2em;
-    height: 0.2em;
-    background-color: rgb(230, 44, 50);
-    border-radius: 5px;
+.burger-menu:hover {
+    background-color: rgb(228, 228, 228);
 }
+
+
+
+.burger-bar {
+    margin: auto;
+    width: 1.2em;
+    height: 2px;
+    background-color: rgb(215, 29, 36);
+    border-radius: 3px;
+}
+
+.setMenuMobile {
+    margin-top: 70px;
+}
+
 .menuburger {
-    width: 100%;
+    width: 220px;
     height: 100vh;
-    background-color: aqua;
+    background-color: rgb(114, 114, 114);
+    z-index: 2;
+    position: fixed;
+    display: flex;
+    overflow-y: auto;
 }
+
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: inherit;
+
+}
+
+.setMenuMobile li {
+    padding: 6px;
+}
+
+.setMenuMobile section {
+    padding: 6px;
+    cursor: pointer;
+}
+
+.setMenuMobile section:hover {
+    background-color: rgb(190, 33, 39);
+    transition-duration: 0.1s;
+}
+
+.setMenuMobile .active {
+    background-color: rgb(190, 33, 39);
+}
+
+.setMenuMobile li:hover {
+    background-color: rgb(190, 33, 39);
+    transition-duration: 0.1s;
+}
+
 @media only screen and (max-width: 768px) {
     .MenuBar .logout-btn {
         display: none;
     }
 
-    .burger-menu{
+    .burger-menu {
         display: flex;
     }
 
@@ -114,13 +171,38 @@
 
     .MenuBar .logo-menu {
         display: inline-block;
+    }
 
+    .logo-menu :hover {
+        cursor: pointer;
+    }
+
+    .logo-menu {
+        top: 10px;
+        left: 65px;
     }
 
     .MenuBar img {
         width: 140px;
-        margin-top: 10px;
+    }
+
+    .sidebar-font {
+        color: rgb(255, 255, 255);
         margin-left: 20px;
     }
 
+    .burger-menu li {
+        padding: 11px;
+    }
+
+    .arrow-icon {
+        color: white;
+    }
+
+}
+
+@media only screen and (min-width: 769px) {
+    .visible {
+        display: none;
+    }
 }

@@ -8,7 +8,7 @@ function LoginPage() {
   const [error, setError] = useState('');
   const [onInput, setOnInput] = useState('');
   Cookies.remove('accessToken');
-  const url1 = 'http://103.225.27.60:8080/api/v1/auth/login';
+  const url1 = 'http://103.225.27.60:8082/api/v1/auth/login';
 
   async function loginUser(credentials) {
     return fetch(url1, {
@@ -83,7 +83,7 @@ function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
             />
             {error ? <><div className="wrong-message">username หรือ password ไม่ถูกต้อง</div></> : <></>}
-            {onInput ? <><div className="wrong-message">กรุณาป้อนข้อมูลให้ครบ</div></> : <></>}
+            {onInput ? <><div className="wrong-message">กรุณาป้อนข้อมูล</div></> : <></>}
             <div align="center">
               <button type="Submit" className="btn-login" >
                 Sign In
