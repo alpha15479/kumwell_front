@@ -5,9 +5,11 @@ import BurgerMenu from './js-components/BurgerMenu';
 function Menubar(props) {
     const { title, arrow } = props;
     const navigate = useNavigate();
+    const Rank = Cookies.get('Role');
+    const username = Cookies.get('acNam');
     const handleClose = () => {
-        Cookies.remove('accessToken')
-        Cookies.remove('Role')
+        Cookies.remove('accessToken');
+        Cookies.remove('Role');
         window.location.href = "/"
     }
     const Goback = () => {
@@ -22,7 +24,11 @@ function Menubar(props) {
                     </div>
                     <i className={arrow} ><li className='background-arrow' onClick={Goback}></li></i>
                     <div className='menu-title'>{title}</div>
-                    <li className='logout-btn' onClick={handleClose}>Logout</li>
+                    <div className='logout-btn' >{username}...</div>
+                    <div className='profile-icon'>
+                        <img src="/image/Profile.png" />
+                    </div>
+                    <div className='profile-menu'></div>
                 </div>
             </nav>
             <BurgerMenu />

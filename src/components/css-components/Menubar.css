@@ -16,7 +16,7 @@
     height: 50px;
     background-color: rgb(255, 255, 255);
     box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 6px;
-    font-size: 18px;
+    font-size: 16px;
     color: rgb(78, 75, 75);
     border-top-style: none;
     z-index: 10;
@@ -29,11 +29,7 @@
     position: absolute;
 }
 
-.MenuBar .logout-btn {
-    position: fixed;
-    right: 50px;
-    margin-top: 13px;
-}
+
 
 .MenuBar .menu-title {
     position: fixed;
@@ -67,7 +63,8 @@
 
 .MenuBar .logout-btn:hover {
     cursor: pointer;
-    color: rgb(215, 29, 36);
+    color: rgb(216, 58, 58);
+    transition: 0.5s;
 }
 
 .burger-menu {
@@ -91,6 +88,7 @@
 
 .burger-menu:hover {
     background-color: rgb(228, 228, 228);
+
 }
 
 
@@ -110,7 +108,7 @@
 .menuburger {
     width: 220px;
     height: 100vh;
-    background-color: rgb(114, 114, 114);
+    background-color: rgb(82, 76, 76);
     z-index: 2;
     position: fixed;
     display: flex;
@@ -138,7 +136,7 @@
 
 .setMenuMobile section:hover {
     background-color: rgb(190, 33, 39);
-    transition-duration: 0.1s;
+    transition-duration: 0.15s;
 }
 
 .setMenuMobile .active {
@@ -147,14 +145,68 @@
 
 .setMenuMobile li:hover {
     background-color: rgb(190, 33, 39);
-    transition-duration: 0.1s;
+    transition-duration: 0.15s;
+}
+
+.MenuBar .logout-btn {
+    position: fixed;
+    right: 15px;
+    margin-top: 9px;
+    border-radius: 25px;
+    font-size: 14px;
+    padding: 6px 0;
+    padding-right: 40px;
+    padding-left: 10px;
+    color: rgb(129, 129, 129);
+    background-color: rgb(235, 235, 235);
+}
+
+.profile-menu {
+    width: 150px;
+    height: 50px;
+    background-color: rgb(180, 180, 180);
+    position: fixed;
+    right: 20px;
+    margin-top: 48px;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+.profile-menu::before {
+    content: '';
+    position: absolute;
+    top: -4.5px;
+    right: 8px;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(180, 180, 180);
+    transform: rotate(45deg);
+}
+
+.profile-icon {
+    position: fixed;
+    right: 18.5px;
+    top: 11.5px;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+
+    /* border: 1px solid rgb(211, 45, 45); */
+}
+
+.profile-icon img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
 }
 
 @media only screen and (max-width: 768px) {
-    .MenuBar .logout-btn {
-        display: none;
-    }
-
     .burger-menu {
         display: flex;
     }
@@ -170,7 +222,7 @@
     }
 
     .MenuBar .logo-menu {
-        display: inline-block;
+        display: inherit;
     }
 
     .logo-menu :hover {
@@ -180,15 +232,17 @@
     .logo-menu {
         top: 10px;
         left: 65px;
+
     }
 
-    .MenuBar img {
+    .MenuBar .logo-menu img {
         width: 140px;
     }
 
     .sidebar-font {
         color: rgb(255, 255, 255);
         margin-left: 20px;
+        font-size: 14px;
     }
 
     .burger-menu li {

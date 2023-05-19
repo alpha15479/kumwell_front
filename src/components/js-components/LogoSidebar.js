@@ -2,15 +2,14 @@ import '../css-components/Sidebar.css'
 import Cookies from 'js-cookie';
 function LogoSidebar(props) {
     const { img, supname } = props;
-    const Rank = Cookies.get('Role');
-
+    const data = Cookies.get('Role');
+    const Rank = data.toUpperCase();
     return (
         <>
             <div className='Logo-sidebar'>
-                <img src={img} onClick={()=>window.location.href = "/HomePage"}/>
+                <img src={img} onClick={() => window.location.href = "/HomePage"} />
                 <p className="supName" align="center">{supname}</p>
                 <p className="Rank" align="center">{Rank}</p>
-                {/* <p className="Rank" align="center">{Rank}</p> */}
             </div>
             <hr />
         </>

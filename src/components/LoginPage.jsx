@@ -24,7 +24,10 @@ function LoginPage() {
       "emailUsername": username,
       "password": password
     })
-    console.log(response);
+    const str = response.userData.username;
+    const extracted = str.substring(0, 5);
+    console.log(extracted);
+    Cookies.set('acNam', extracted);
     if ("accessToken" in response) {
       setError(false);
       swal({
