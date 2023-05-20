@@ -18,8 +18,9 @@ function Sidebar({showOns}) {
     <>
       <nav className="sidebar" >
         <LogoSidebar img="/image/Logo-Kumwell.png" supname="Lightning Warning System" />
-    
+        <hr/>
         <SidebarItem title="หน้าหลัก" route="/HomePage" />
+   
         <section onClick={handleMenuClick} >
           <span className="sidebar-font">ตั้งค่าสถานที่</span>
           {isMenuOpen ? (
@@ -39,7 +40,6 @@ function Sidebar({showOns}) {
         <SidebarItem title="การทดสอบส่ง Line" route="/LineSend" />
         <SidebarItem title="ข้อมูล Activation Code" route="/InformationActivationCode" />
         <SidebarItem title="แก้ไขรหัสผ่าน" route="/PasswordSet" />
-     
       </nav>
     </>
   );

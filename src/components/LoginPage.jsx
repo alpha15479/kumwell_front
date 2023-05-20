@@ -9,7 +9,6 @@ function LoginPage() {
   const [onInput, setOnInput] = useState('');
   Cookies.remove('accessToken');
   const url1 = 'http://103.225.27.60:8082/api/v1/auth/login';
-
   async function loginUser(credentials) {
     return fetch(url1, {
       method: "POST",
@@ -24,11 +23,11 @@ function LoginPage() {
       "emailUsername": username,
       "password": password
     })
-    const str = response.userData.username;
-    const extracted = str.substring(0, 5);
-    console.log(extracted);
-    Cookies.set('acNam', extracted);
+   
     if ("accessToken" in response) {
+      const str = response.userData.username;
+      const extracted = str.substring(0, 5);
+      Cookies.set('acNam', extracted);
       setError(false);
       swal({
         title: "Login Success",

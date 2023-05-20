@@ -3,6 +3,7 @@ import LoginPage from './components/LoginPage';
 import './index.css';
 import Cookies from 'js-cookie';
 import Role from "./components/Role";
+import UpDateOrgan from './routes/infomation-place/UpDateOrgan';
 
 function Kumwell() {
     const [admin, setAdmin] = useState('');
@@ -18,11 +19,9 @@ function Kumwell() {
 
     return (
         <>
-        
-        <div className='backgroundpage'>
-        {admin ? <><Role admin={true} /></> : <><Role user={true} /></>}
-        </div>
-        
+            <div className='backgroundpage'>
+                {admin ? <><Role admin={true} /></> : <><Role user={true} /></>}
+            </div>
         </>
     );
 }

@@ -1,9 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import { useEffect, useState } from 'react';
 import Sidebar from './Sidebar';
 import LoginPage from './LoginPage';
 import HomePage from '../routes/Home/HomePage';
-import DetailOrganization from '../routes/DetailOrganization';
 import SoundSet from '../routes/sound-setting/SetSound'
 import AddSound from '../routes/sound-setting/AddSound'
 import InfoPlace from '../routes/infomation-place/InfoPlace'
@@ -12,7 +10,6 @@ import SetAdmin from '../routes/Set-Customer-and-Admin/SetAdmin';
 import SetCustomer from '../routes/Set-Customer-and-Admin/SetCustomer';
 import SideBarUser from './SideBarUser';
 import '../index.css';
-import Cookies from 'js-cookie';
 import UpdateOrganization from "../routes/infomation-place/UpdateOrganization";
 function Role({ admin, user }) {
     if(window.location.pathname == "/"){

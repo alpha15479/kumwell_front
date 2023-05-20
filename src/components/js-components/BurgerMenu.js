@@ -5,16 +5,19 @@ import { FaAngleUp, FaAngleDown } from 'react-icons/fa';
 export default function BurgerMenu() {
     const [burger_class, setburgerClass] = useState('burger-bar unclicked');
     const [menu_class, setMenuClass] = useState('menuburger hidden');
+    const [menu_select, setMenuSelect] = useState('berger-unActive');
     const [isMenuClick, setIsMenuClick] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(null);
     const updateMenu = () => {
         if (!isMenuClick) {
             setburgerClass("burger-bar clicked");
-            setMenuClass("menuburger visible")
+            setMenuClass("menuburger visible");
+            setMenuSelect('berger-Active');
         }
         else {
             setburgerClass('burger-bar unclicked');
             setMenuClass('menuburger hidden');
+            setMenuSelect('berger-UnActive');
         }
         setIsMenuClick(!isMenuClick);
     }
@@ -26,11 +29,12 @@ export default function BurgerMenu() {
     return (
         <>
             <nav>
-
+                <div className={menu_select}>
                 <div className="burger-menu" onClick={updateMenu}>
                     <div className={burger_class} ></div>
                     <div className={burger_class} ></div>
                     <div className={burger_class} ></div>
+                </div>
                 </div>
             </nav>
             <div className={menu_class}>

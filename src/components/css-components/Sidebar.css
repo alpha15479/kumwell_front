@@ -21,14 +21,11 @@ p {
 .Logo-sidebar p {
     font-size: 13px;
     display: block;
-
-
 }
 
 .supName {
     margin-top: 0px;
     margin-bottom: 5px;
-
 }
 
 .Rank {
@@ -40,14 +37,16 @@ p {
     position: fixed;
     width: 250px;
     height: 100vh;
-    background-color: rgb(243, 243, 243);
-    z-index: 20;
+    background-color: #d71d24;
+    /* background-color: #be1c22; */
+    z-index: 10;
     overflow-y: auto;
 }
 
-hr {
+.sidebar hr {
     position: relative;
     border: 1px solid rgba(78, 75, 75, 0.22);
+    margin-top: 40px;
 }
 
 li {
@@ -56,29 +55,24 @@ li {
 }
 
 .sidebar li:hover {
-    background-color: rgb(225, 204, 204);
-    cursor: pointer;
-    transition-duration: 0.1s;
+    background-color: rgba(7, 7, 7, 0.6);
 }
 
 .sidebar section:hover {
-    background-color: rgb(225, 204, 204);
-    cursor: pointer;
-    transition-duration: 0.1s;
+    background-color: rgba(7, 7, 7, 0.6);
 }
 
 .sidebar li:hover .sidebar-font {
-    color: rgb(215, 29, 36);
+    color: rgb(255, 255, 255);
 }
-
 .sidebar section:hover .sidebar-font {
-    color: rgb(215, 29, 36);
+    color: rgb(255, 255, 255);
 }
 
 .sidebar-font {
     margin-left: 30px;
     font-size: 16px;
-    color: #4F4F4F;
+    color: #ffffff;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -96,25 +90,30 @@ a:active {
 
 .sidebar li {
     padding: 10px;
+    padding-left: 0px;
+    cursor: pointer;
 }
 
 .sidebar section {
     padding: 10px;
+    padding-left: 0px;
 }
 
 .Status-Color {
-    background-color: rgb(225, 204, 204);
+    background-color: rgba(7, 7, 7, 0.6);
     color: white;
 }
 
 nav .active {
-    background-color: rgb(225, 204, 204);
-    box-shadow: inset 5px 0 0 0 rgb(157, 26, 26);
-
+    background-color: rgba(7, 7, 7, 0.6);
+    box-shadow: inset 6px 0 0 0 rgb(255, 255, 255);
+    transition: 0.2s;
 }
 
 nav .active .sidebar-font {
-    color: rgb(215, 29, 36);
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    transition: 0.15s;
 }
 
 .menu {
@@ -130,7 +129,7 @@ nav .active .sidebar-font {
 
 .arrow-icon {
     position: absolute;
-    color: rgb(100, 96, 96);
+    color: rgb(255, 255, 255);
     right: 20px;
 }
 

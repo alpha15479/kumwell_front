@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react"; import "../Routers.css";
 import Menubar from '../../components/Menubar';
 import '../../assistant/css/bootstrap.min.css'
 import DataTable from 'react-data-table-component';
 import Cookies from 'js-cookie';
+import UpDateOrgan from "./UpDateOrgan";
 function InfoPlace() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
@@ -28,7 +28,6 @@ function InfoPlace() {
                 }
             )
     };
-    console.log(items)
     const columns = [
         {
             name: '#',
@@ -41,7 +40,7 @@ function InfoPlace() {
             name: 'ชื่อ',
             selector: row => row.nameLocation,
             sortable: true,
-            width: '150px'
+            width: '200px'
         },
         {
             name: 'Lat,long ',
@@ -51,19 +50,34 @@ function InfoPlace() {
                 </li>
             ),
             omit: hideDirector,
+            width: '150px'
 
         },
         {
             name: 'สถานที่',
             selector: row => row.keyName,
+            width: '100px'
         },
         {
             name: 'ประเภทแผนที่',
-            cell: row => (<>M Field, E Field</>)
+            cell: row => (<>M Field, E Field</>),
+            width: 'auto',
         },
         {
-            name: 'ตั้งค่าข้อมูล',
-            cell: row => (<><button className="change-btn">ตั้งค่า</button></>)
+            name: 'ตั้งค่า',
+            cell: row => (<><button className="change-btn">ตั้งค่า</button></>),
+            ignoreRowClick: true,
+            allowOverflow: true,
+            button: true,
+            width: '90px',
+        },
+        {
+            name: 'ลบ',
+            cell: row => (<><button className="delete-btn">ลบ</button></>),
+            ignoreRowClick: true,
+            allowOverflow: true,
+            button: true,
+            width: '60px',
         },
     ];
 
@@ -79,18 +93,19 @@ function InfoPlace() {
             setFilterText('');
         }
     };
+    
     if (token != null) {
         const filteredItems = items.filter(
             item => item.nameLocation && item.nameLocation.toLowerCase().includes(filterText.toLowerCase()));
         return (
             <>
                 <Menubar title="ข้อมูลสถานที่" />
+                {/* <UpDateOrgan/> */}
                 <div className="container-route">
                     {isLoaded ? <>
                         <div className="sound-backgorund">
-                            <p>ข้อมูลรายละเอียดสถานที่</p>
-                            {/* <Link to="/Locationinformation/UpdateOrganization" className="Link-Spect"><button className="btn-add">เพิ่มข้อมูลสถานที่ใหม่</button></Link> */}
-                            <button className="btn-add ms-4" onClick={handleClear}>เพิ่มข้อมูลสถานที่ใหม่</button>
+                            <span className="topic-title">ข้อมูลสถานที่</span>
+                            <button className="btn-add" onClick={()=><><UpDateOrgan/></>}><img src="./image/plus.png" width="12px" />  เพิ่มข้อมูลสถานที่ใหม่</button>
                             <div className="sound-item ">
                                 <div className="sound-Head">
                                     <input className="Search" type="text" onChange={e => setFilterText(e.target.value)} placeholder="Search" />
@@ -100,17 +115,21 @@ function InfoPlace() {
                                         data={filteredItems}
                                         theme="solarized"
                                         pagination
-                                        dense
+                                        // dense
                                         fixedHeader />
                                 </div>
                             </div>
                         </div>
+
                     </> :
                         <>
                             Loading...
+
                         </>}
 
                 </div>
+
+
             </>
         );
     }

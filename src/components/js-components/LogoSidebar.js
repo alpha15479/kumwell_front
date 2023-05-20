@@ -7,11 +7,10 @@ function LogoSidebar(props) {
     return (
         <>
             <div className='Logo-sidebar'>
-                <img src={img} onClick={() => window.location.href = "/HomePage"} />
-                <p className="supName" align="center">{supname}</p>
-                <p className="Rank" align="center">{Rank}</p>
+                {/* <img src={img} onClick={() => window.location.href = "/HomePage"} /> */}
+                {/* <p className="supName" align="center">{supname}</p> */}
+                {/* <p className="Rank" align="center">{Rank}</p> */}
             </div>
-            <hr />
         </>
     );
 }

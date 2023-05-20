@@ -20,9 +20,8 @@ function SidebarItem(props) {
 
     useEffect(() => {
         pathCheck();
-    }, [])
-
-
+    }, [],1000)
+    
     return (
         <>
             <Link to={route} ><li className={`onSelect ${status}`}><span className="sidebar-font">{title}</span></li></Link>

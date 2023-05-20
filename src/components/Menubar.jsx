@@ -2,19 +2,54 @@ import { useNavigate } from 'react-router-dom';
 import './css-components/Menubar.css';
 import Cookies from 'js-cookie';
 import BurgerMenu from './js-components/BurgerMenu';
+import { useEffect, useState, useRef } from 'react';
 function Menubar(props) {
     const { title, arrow } = props;
     const navigate = useNavigate();
-    const Rank = Cookies.get('Role');
     const username = Cookies.get('acNam');
+    const [profile, setProfile] = useState('profile-unActive');
+    const [currentTime, setCurrentTime] = useState(new Date());
+    const [isMenuClick, setIsMenuClick] = useState(false);
+    const menuRef = useRef(null);
     const handleClose = () => {
         Cookies.remove('accessToken');
         Cookies.remove('Role');
+        Cookies.remove('acNam');
         window.location.href = "/"
     }
     const Goback = () => {
         navigate(-1);
     }
+    const updateMenu = () => {
+        if (!isMenuClick) {
+            setProfile("profile-Active");
+        }
+        else {
+            setProfile('profile-unActive');
+        }
+        setIsMenuClick(!isMenuClick);
+    }
+
+    const handleClickOutside = (event) => {
+        if (menuRef.current && !menuRef.current.contains(event.target)) {
+            setProfile('profile-unActive');
+            setIsMenuClick(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, [])
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentTime(new Date());
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <>
             <nav className='container-Menu'>
@@ -23,12 +58,28 @@ function Menubar(props) {
                         <img src="/image/Logo-Kumwell.png" />
                     </div>
                     <i className={arrow} ><li className='background-arrow' onClick={Goback}></li></i>
-                    <div className='menu-title'>{title}</div>
-                    <div className='logout-btn' >{username}...</div>
-                    <div className='profile-icon'>
-                        <img src="/image/Profile.png" />
+                    <div className='logout-btn' onClick={updateMenu} ref={menuRef}>{username}...
+                        <div className='profile-icon'>
+                            <img src="/image/Profile.png" />
+                        </div>
                     </div>
-                    <div className='profile-menu'></div>
+                    <div className="font-container">
+                        <p className="moving-font">Lightning Warning System "We Take You Safety"</p>
+                    </div>
+                    <div className='timeNow'>
+                        {currentTime.toLocaleTimeString()}
+                    </div>
+                    <div className={profile}>
+                        <div className='profile-menu' >
+                            <div className='item-profile'>
+                                <li><img src="/image/settings.png" width="13px" />  Password Setting
+                                </li>
+                                <li onClick={handleClose}>
+                                    <img src="/image/logout.png" width="13px" />  Logout
+                                </li>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </nav>
             <BurgerMenu />

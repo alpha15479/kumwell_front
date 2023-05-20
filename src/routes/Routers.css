@@ -1,5 +1,4 @@
 .container-route {
-    position: flex;
     margin-left: 125px;
     margin-top: 70px;
     width: 100%;
@@ -20,12 +19,16 @@
 
 .sound-backgorund {
     position: relative;
+    display: block;
     width: 100%;
     height: 100%;
     background-color: rgb(236, 236, 236);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding-bottom: 50px;
     border-radius: 5px;
+    z-index: 1;
+    padding-top: 35px;
+    
 }
 
 .container-route p {
@@ -37,7 +40,7 @@
 
 .sound-item {
     position: relative;
-    margin-top: 20px;
+    margin-top: 35px;
     width: calc(100% - 40px);
     margin-left: 20px;
     background-color: #ffffff;
@@ -46,6 +49,7 @@
     padding-bottom: auto;
     font-size: 14px;
     padding-bottom: 50px;
+    z-index: -1;
 }
 
 .report-item {
@@ -60,7 +64,11 @@
     padding-bottom: 50px;
     border-radius: 7px;
 }
-
+.topic-title{
+    margin-left: 40px;
+    color: #555;
+    font-size: 14px;
+}
 input {
     height: 30px;
     border-radius: 5px;
@@ -81,14 +89,16 @@ input.Search {
 }
 
 .btn-add {
+    position: absolute;
+    right: 35px;
     border: none;
-    background-color: #2E86C1;
-    border-radius: 5px;
+    background-color: #4C50A7;
+    border-radius: 18px;
     color: white;
     font-size: 13px;
-    height: 30px;
-    padding-left: 15px;
-    padding-right: 15px;
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
     width: auto;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -108,11 +118,12 @@ input.Search {
 .edit-btn {
     border: none;
     background-color: #F3BA26;
-    border-radius: 7px;
+    border-radius: 15px;
     color: white;
     font-size: 11px;
     padding-left: 15px;
     padding-right: 15px;
+    height: 23px;
     width: auto;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
@@ -120,7 +131,8 @@ input.Search {
 .change-btn {
     border: none;
     background-color: #2E86C1;
-    border-radius: 7px;
+    border-radius: 15px;
+    height: 23px;
     color: white;
     font-size: 11px;
     padding-left: 15px;
@@ -132,17 +144,20 @@ input.Search {
 .delete-btn {
     border: none;
     background-color: #F37026;
-    border-radius: 7px;
+    border-radius: 15px;
     color: white;
     font-size: 11px;
     padding-left: 20px;
     padding-right: 20px;
+    height: 23px;
     width: auto;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .btn-add:hover {
-    background-color: #3c9ddd;
+    background-color: #4c51a7e3;
+    color: #1cf038;
+    transition: 0.1s;
 }
 
 .Status .bi-chevron-left {
@@ -199,6 +214,58 @@ input.Search {
 .report-Head {
     margin-bottom: -15px;
 }
+
+.bodyModal {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    overflow-y: auto;
+}
+
+.overlay {
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    pointer-events: auto;
+    opacity: 0.75;
+  }
+
+  .modals {
+    padding-left:40px;
+    padding-right:40px;
+    background-color: rgb(248, 248, 248);
+    display: flexbox;
+    margin: auto;
+    margin-top: 70px;
+    width: 500px;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 6px 4px;
+    border-radius: 10px;
+    z-index: 110;
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  .modals input{
+    width: 100%;
+    border: 1px solid rgb(54, 54, 54);
+    height: 35px;
+  }
+
+  .modals  input[type=text] ,.modals  input[type=number] {
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    font-size: 16px;
+    padding-left: 10px;
+  }
+  
 
 @media only screen and (max-width: 908px) {
     .sound {

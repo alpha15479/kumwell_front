@@ -101,7 +101,7 @@ function SoundSet() {
                   data={filteredItems}
                   theme="solarized"
                   pagination
-                  dense
+                  // dense
                   fixedHeader
                 />
               </div>
