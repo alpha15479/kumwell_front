@@ -81,20 +81,17 @@ function SoundSet() {
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
-    return <div><Menubar title="ตั้งค่าข้อมูลเสียงแจ้งเตือน" />
+    return <div>
       Loading...</div>;
   } else {
     return (
       <>
-        <Menubar title="ตั้งค่าข้อมูลเสียงแจ้งเตือน" />
         <div className="container-route">
           <div className="sound-backgorund">
             <p>ข้อมูลรายละเอียดเสียงแจ้งเตือน</p>
             <Link to="/SoundSet/AddSound" className="Link-Spect"><button className="btn-add">เพิ่มเสียงแจ้งเตือนใหม่</button></Link>
             <div className="sound-item ">
               <div className="sound-Head">
-                {/* <button className="btn-add" onClick={() => setHideDirector(!hideDirector)}>Hide Directory Column</button> */}
-                {/* <input className ="Search"type="text" onChange={e => setFilterText(e.target.value)} placeholder="Search"/> */}
                 <DataTable
                   className="dataTables_wrapper"
                   columns={columns}

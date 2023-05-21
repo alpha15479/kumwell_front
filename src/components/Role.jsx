@@ -11,12 +11,25 @@ import SetCustomer from '../routes/Set-Customer-and-Admin/SetCustomer';
 import SideBarUser from './SideBarUser';
 import '../index.css';
 import UpdateOrganization from "../routes/infomation-place/UpdateOrganization";
+import Cookies from 'js-cookie';
+import Menubar from "./Menubar";
 function Role({ admin, user }) {
-    if(window.location.pathname == "/"){
-        return <><LoginPage/></>
-     }
+    const report = Cookies.get('report');
+    const settingDevice = Cookies.get('settingDevice');
+    const settingUser = Cookies.get('settingUser');
+    const simulationMode = Cookies.get('simulationMode');
+    const viewer = Cookies.get('viewer');
+    console.log(report);
+    console.log(settingDevice);
+    console.log(settingUser);
+    console.log(simulationMode);
+    console.log(viewer);
+    if (window.location.pathname == "/") {
+        return <><LoginPage /></>
+    }
     return (
         <>
+            <Menubar />
             {admin ? <>
                 <Sidebar />
                 <Routes>
@@ -25,7 +38,7 @@ function Role({ admin, user }) {
                     <Route path="Report" element={<Report />} />
                     <Route path="HomePage" element={<HomePage />} />
                     <Route path="Locationinformation" element={<InfoPlace />} />
-                    <Route path="Locationinformation/UpdateOrganization" element={<UpdateOrganization/>} />
+                    <Route path="Locationinformation/UpdateOrganization" element={<UpdateOrganization />} />
                     <Route path="InformationUserSet" element={<SetAdmin />} />
                     <Route path="InformationCustomerSet" element={<SetCustomer />} />
                 </Routes>
@@ -39,7 +52,7 @@ function Role({ admin, user }) {
                     <Route path="Report" element={<Report />} />
                 </Routes>
             </> : <></>}
-      
+
         </>
     );
 }

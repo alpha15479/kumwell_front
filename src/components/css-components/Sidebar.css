@@ -39,8 +39,12 @@ p {
     height: 100vh;
     background-color: #d71d24;
     /* background-color: #be1c22; */
-    z-index: 10;
+    z-index: 0;
     overflow-y: auto;
+}
+
+.sidebar:focus {
+    outline: none;
 }
 
 .sidebar hr {
@@ -56,6 +60,7 @@ li {
 
 .sidebar li:hover {
     background-color: rgba(7, 7, 7, 0.6);
+    outline: none;
 }
 
 .sidebar section:hover {
@@ -65,6 +70,7 @@ li {
 .sidebar li:hover .sidebar-font {
     color: rgb(255, 255, 255);
 }
+
 .sidebar section:hover .sidebar-font {
     color: rgb(255, 255, 255);
 }

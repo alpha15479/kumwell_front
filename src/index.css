@@ -27,7 +27,9 @@ code {
   overflow-y: auto;
   overflow-x: hidden;
 }
-
+.MenuIndex{
+  z-index: 50;
+}
 /* .setOverFlow{
   margin-top: 105%;
   overflow-y: auto;

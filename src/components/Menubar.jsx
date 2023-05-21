@@ -3,8 +3,7 @@ import './css-components/Menubar.css';
 import Cookies from 'js-cookie';
 import BurgerMenu from './js-components/BurgerMenu';
 import { useEffect, useState, useRef } from 'react';
-function Menubar(props) {
-    const { title, arrow } = props;
+function Menubar() {
     const navigate = useNavigate();
     const username = Cookies.get('acNam');
     const [profile, setProfile] = useState('profile-unActive');
@@ -15,6 +14,7 @@ function Menubar(props) {
         Cookies.remove('accessToken');
         Cookies.remove('Role');
         Cookies.remove('acNam');
+        Cookies.remove('DatUse');
         window.location.href = "/"
     }
     const Goback = () => {
@@ -39,15 +39,13 @@ function Menubar(props) {
 
     useEffect(() => {
         document.addEventListener('click', handleClickOutside);
-        return () => {
-            document.removeEventListener('click', handleClickOutside);
-        };
-    }, [])
-    useEffect(() => {
         const interval = setInterval(() => {
             setCurrentTime(new Date());
         }, 1000);
-        return () => clearInterval(interval);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+            clearInterval(interval);
+        };
     }, []);
 
     return (
@@ -57,15 +55,17 @@ function Menubar(props) {
                     <div className='logo-menu' onClick={() => window.location.href = "/HomePage"}>
                         <img src="/image/Logo-Kumwell.png" />
                     </div>
-                    <i className={arrow} ><li className='background-arrow' onClick={Goback}></li></i>
+                    {/* <i  ><li className='background-arrow' onClick={Goback}></li></i> */}
                     <div className='logout-btn' onClick={updateMenu} ref={menuRef}>{username}...
                         <div className='profile-icon'>
                             <img src="/image/Profile.png" />
                         </div>
                     </div>
+
                     <div className="font-container">
                         <p className="moving-font">Lightning Warning System "We Take You Safety"</p>
                     </div>
+                    
                     <div className='timeNow'>
                         {currentTime.toLocaleTimeString()}
                     </div>

@@ -3,9 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { FaAngleUp, FaAngleDown } from 'react-icons/fa';
 import SidebarItem from './js-components/SidebarItem';
 import LogoSidebar from './js-components/LogoSidebar';
-function Sidebar({showOns}) {
+import Cookies from 'js-cookie';
+function Sidebar({ showOns }) {
+  const report = Cookies.get('report');
+  const settingDevice = Cookies.get('settingDevice');
+  const settingUser = Cookies.get('settingUser');
+  const simulationMode = Cookies.get('simulationMode');
+  const viewer = Cookies.get('viewer');
   const [isMenuOpen, setIsMenuOpen] = useState(null);
-
   function handleMenuClick() {
     setIsMenuOpen(!isMenuOpen);
   }
@@ -18,9 +23,9 @@ function Sidebar({showOns}) {
     <>
       <nav className="sidebar" >
         <LogoSidebar img="/image/Logo-Kumwell.png" supname="Lightning Warning System" />
-        <hr/>
+        <hr />
         <SidebarItem title="หน้าหลัก" route="/HomePage" />
-   
+
         <section onClick={handleMenuClick} >
           <span className="sidebar-font">ตั้งค่าสถานที่</span>
           {isMenuOpen ? (
@@ -36,7 +41,7 @@ function Sidebar({showOns}) {
         <SidebarItem title="ตั้งค่าข้อมูลบริษัทลูกค้า" route="/InformationCustomerSet" />
         <SidebarItem title="ตั้งค่าข้อมูลผู้ใช้งาน" route="/InformationUserSet" />
         <SidebarItem title="สถานะอุปกรณ์" route="/DeviceStatus" />
-        <SidebarItem title="รายงาน" route="/Report" />
+        {report? <><SidebarItem title="รายงาน" route="/Report" /></>:<></>}
         <SidebarItem title="การทดสอบส่ง Line" route="/LineSend" />
         <SidebarItem title="ข้อมูล Activation Code" route="/InformationActivationCode" />
         <SidebarItem title="แก้ไขรหัสผ่าน" route="/PasswordSet" />

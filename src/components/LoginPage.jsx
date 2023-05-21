@@ -24,10 +24,22 @@ function LoginPage() {
       "password": password
     })
    
+
     if ("accessToken" in response) {
       const str = response.userData.username;
       const extracted = str.substring(0, 5);
       Cookies.set('acNam', extracted);
+      Cookies.set('report', response.userData.role.report);
+      Cookies.set('settingDevice', response.userData.role.settingDevice);
+      Cookies.set('settingUser', response.userData.role.settingUser);
+      Cookies.set('simulationMode', response.userData.role.simulationMode);
+      Cookies.set('viewer', response.userData.role.viewer);
+      console.log(Cookies.get('report'));
+      console.log(Cookies.get('settingDevice'));
+      console.log(Cookies.get('settingUser'));
+      console.log(Cookies.get('simulationMode'));
+      console.log(Cookies.get('viewer'));
+
       setError(false);
       swal({
         title: "Login Success",

@@ -3,11 +3,12 @@ import LoginPage from './components/LoginPage';
 import './index.css';
 import Cookies from 'js-cookie';
 import Role from "./components/Role";
-import UpDateOrgan from './routes/infomation-place/UpDateOrgan';
+import Menubar from './components/Menubar';
 
 function Kumwell() {
     const [admin, setAdmin] = useState('');
     const role = (Cookies.get('Role'));
+
     useEffect(() => {
         if (role == 'Admin') { setAdmin(true) }
         if (role == 'User') { setAdmin(false) }

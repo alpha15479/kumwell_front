@@ -93,19 +93,18 @@ function InfoPlace() {
             setFilterText('');
         }
     };
-    
+
     if (token != null) {
         const filteredItems = items.filter(
             item => item.nameLocation && item.nameLocation.toLowerCase().includes(filterText.toLowerCase()));
         return (
             <>
-                <Menubar title="ข้อมูลสถานที่" />
                 {/* <UpDateOrgan/> */}
                 <div className="container-route">
                     {isLoaded ? <>
                         <div className="sound-backgorund">
                             <span className="topic-title">ข้อมูลสถานที่</span>
-                            <button className="btn-add" onClick={()=><><UpDateOrgan/></>}><img src="./image/plus.png" width="12px" />  เพิ่มข้อมูลสถานที่ใหม่</button>
+                            <button className="btn-add" onClick={() => <><UpDateOrgan /></>}><img src="./image/plus.png" width="12px" />  เพิ่มข้อมูลสถานที่ใหม่</button>
                             <div className="sound-item ">
                                 <div className="sound-Head">
                                     <input className="Search" type="text" onChange={e => setFilterText(e.target.value)} placeholder="Search" />
@@ -115,12 +114,10 @@ function InfoPlace() {
                                         data={filteredItems}
                                         theme="solarized"
                                         pagination
-                                        // dense
                                         fixedHeader />
                                 </div>
                             </div>
                         </div>
-
                     </> :
                         <>
                             Loading...
